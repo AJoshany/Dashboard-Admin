@@ -1,30 +1,104 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Topbar.css";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import LanguageIcon from "@mui/icons-material/Language";
 import SettingsIcon from "@mui/icons-material/Settings";
+import Popover from '@mui/material/Popover';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import { Link } from "react-router-dom";
+
 
 export default function Topbar() {
+  const [showNotifs, setShowNotifs] = useState(null);
+  const [showLanguages, setShowLanguages] = useState(null);
+
+  const languageClickHandler = (event) => {
+    setShowLanguages(event.currentTarget);
+  };
+  const handleLanguageClose = () => {
+    setShowLanguages(null);
+  };
+
+  const notifClickHandler = (event) => {
+    setShowNotifs(event.currentTarget);
+  };
+
+  const handleNotifClose = () => {
+    setShowNotifs(null);
+  };
+
+  const openNotif = Boolean(showNotifs);
+  const NotifId = openNotif ? 'simple-popover' : undefined;
+
+  const openLanguage = Boolean(showLanguages);
+  const languageId = openLanguage ? 'simple-popover' : undefined;
+
   return (
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo"> SabzLearn ❤</span>
+          <Link className="link" to="/">
+          <span className="logo"> Ali Joshany ❤</span>
+          </Link>
         </div>
 
         <div className="topRight">
-          <div className="topbarIconContainer">
+          <div className="topbarIconContainer" aria-describedby={NotifId} onClick={notifClickHandler}>
             <NotificationsIcon />
             <span className="topIconBadge">2</span>
           </div>
-          <div className="topbarIconContainer">
+          <Popover
+            id={NotifId}
+            open={openNotif}
+            anchorEl={showNotifs}
+            onClose={handleNotifClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+          >
+            <Typography sx={{ p: 2 }}>Notifications</Typography>
+          </Popover>
+
+          <div className="topbarIconContainer" aria-describedby={languageId} onClick={languageClickHandler}>
             <LanguageIcon />
             <span className="topIconBadge">2</span>
           </div>
+          <Popover
+            id={languageId}
+            open={openLanguage}
+            anchorEl={showLanguages}
+            onClose={handleLanguageClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+
+          >
+            <FormControl className="languagePropover">
+              <FormLabel id="demo-radio-buttons-group-label" className="languagePropoverTitle">Language</FormLabel>
+              <RadioGroup 
+                className="languagePropoverRadio"
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="female"
+                name="radio-buttons-group"
+              >
+                <FormControlLabel className="languagePropoverLabel" value="female" control={<Radio />} label="Persian" />
+                <FormControlLabel className="languagePropoverLabel" value="male" control={<Radio />} label="English" />
+              </RadioGroup>
+            </FormControl>
+          </Popover>
+
           <div className="topbarIconContainer">
             <SettingsIcon />
           </div>
-          <img src="images/1.jpg" className = "topAvatar"/>
+          <img src="images/1.jpg" className="topAvatar" />
         </div>
       </div>
     </div>

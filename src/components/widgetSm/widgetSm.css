@@ -33,6 +33,7 @@
 .widgetSmUser{
     display: flex;
     flex-direction: column;
+    align-items: center;
 
 }
 
@@ -41,7 +42,9 @@
 }
 
 .widgetSmUserTitle{
-    font-weight: 300;
+    font-weight: 200;
+    font-size: 15px;
+    padding-top: 5px;
 }
 
 .widgetSmButton{

@@ -57,3 +57,19 @@
     cursor: pointer;
     
 }
+
+.languagePropover{
+    padding-top: 10px !important;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.languagePropoverTitle{
+    padding-bottom: 10px !important;
+    font-weight: 300;
+    font-size: 16px !important ;
+}
+.languagePropoverLabel{
+    font-size: 12px !important;
+}
