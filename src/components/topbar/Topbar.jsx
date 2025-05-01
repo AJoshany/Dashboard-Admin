@@ -53,10 +53,12 @@ export default function Topbar() {
         </div>
 
         <div className="topRight">
+          <div className="topbarIconContainer">
+          <button className="topbarColorMode" onClick={toggleColorMode} color="inherit">
+            {mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+          </button>
+          </div>
           <div className="topbarIconContainer" aria-describedby={NotifId} onClick={notifClickHandler}>
-            <button className="topbarColorMode" onClick={toggleColorMode} color="inherit">
-              {mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
-            </button>
             <NotificationsIcon />
             <span className="topIconBadge">2</span>
           </div>
@@ -101,7 +103,6 @@ export default function Topbar() {
               </RadioGroup>
             </FormControl>
           </Popover>
-
           <div className="topbarIconContainer">
             <SettingsIcon />
           </div>
