@@ -49,7 +49,7 @@ export default function NewUser() {
       setError('Password and Confirm Pass is not Same!');
       return;
     }
-    
+
     await fetch('https://dashboard-118f3-default-rtdb.firebaseio.com/users.json', {
       method: "POST",
       body: JSON.stringify(form)
@@ -61,90 +61,90 @@ export default function NewUser() {
 
   return (
     <div className='newUserContainer'>
-    <Box
-      component="form"
-      
-      onSubmit={handleSubmit}
-      sx={{
-        maxWidth:'50%',
-        mx: 'auto',
-        mt: 4,
-        p: 3,
-        border: '1px solid #ccc',
-        borderRadius: 2,
-        boxShadow: 2,
-      }}
-    >
-      <Typography variant="h5" mb={2}>Register</Typography>
+      <Box
+        component="form"
 
-      {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
-      {success && <Alert severity="success" sx={{ mb: 2 }}>{success}</Alert>}
+        onSubmit={handleSubmit}
+        sx={{
+          maxWidth: '50%',
+          mx: 'auto',
+          mt: 4,
+          p: 3,
+          border: '1px solid #ccc',
+          borderRadius: 2,
+          boxShadow: 2,
+        }}
+      >
+        <Typography variant="h5" mb={2}>Register</Typography>
 
-      <Box display="flex" flexDirection="column" alignItems="center" mb={2}>
-        <Avatar
-          src={preview}
-          sx={{ width: 80, height: 80, mb: 1 }}
-        />
-        <Button variant="outlined" component="label">
-          Choose Profile Photo
-          <input
-            type="file"
-            accept="image/*"
-            hidden
-            onChange={handleFileChange}
+        {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
+        {success && <Alert severity="success" sx={{ mb: 2 }}>{success}</Alert>}
+
+        <Box display="flex" flexDirection="column" alignItems="center" mb={2}>
+          <Avatar
+            src={preview}
+            sx={{ width: 80, height: 80, mb: 1 }}
           />
+          <Button variant="outlined" component="label">
+            Choose Profile Photo
+            <input
+              type="file"
+              accept="image/*"
+              hidden
+              onChange={handleFileChange}
+            />
+          </Button>
+        </Box>
+
+        <TextField
+          fullWidth
+          label="User Name"
+          name="username"
+          value={form.username}
+          onChange={handleChange}
+          margin="normal"
+        />
+
+        <TextField
+          fullWidth
+          label="Email"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+          margin="normal"
+          type="email"
+        />
+
+        <TextField
+          fullWidth
+          label="Password"
+          name="password"
+          value={form.password}
+          onChange={handleChange}
+          margin="normal"
+          type="password"
+        />
+
+        <TextField
+          fullWidth
+          label="Confirm Password"
+          name="confirmPassword"
+          value={form.confirmPassword}
+          onChange={handleChange}
+          margin="normal"
+          type="password"
+        />
+
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          fullWidth
+          sx={{ mt: 2 }}
+        >
+          Sign up
         </Button>
       </Box>
-
-      <TextField
-        fullWidth
-        label="User Name"
-        name="username"
-        value={form.username}
-        onChange={handleChange}
-        margin="normal"
-      />
-
-      <TextField
-        fullWidth
-        label="Email"
-        name="email"
-        value={form.email}
-        onChange={handleChange}
-        margin="normal"
-        type="email"
-      />
-
-      <TextField
-        fullWidth
-        label="Password"
-        name="password"
-        value={form.password}
-        onChange={handleChange}
-        margin="normal"
-        type="password"
-      />
-
-      <TextField
-        fullWidth
-        label="Confirm Password"
-        name="confirmPassword"
-        value={form.confirmPassword}
-        onChange={handleChange}
-        margin="normal"
-        type="password"
-      />
-
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        fullWidth
-        sx={{ mt: 2 }}
-      >
-        Sign up
-      </Button>
-    </Box>
     </div>
   );
 }

@@ -73,3 +73,8 @@
 .languagePropoverLabel{
     font-size: 12px !important;
 }
+.topbarColorMode{
+    border: none;
+    background-color: #fff;
+    color: rgb(88, 88, 88);
+}

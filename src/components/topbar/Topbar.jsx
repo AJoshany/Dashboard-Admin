@@ -12,11 +12,15 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { Link } from "react-router-dom";
+import { Brightness4, Brightness7 } from '@mui/icons-material';
+import { useColorMode } from './../../ThemeContext';
 
 
 export default function Topbar() {
   const [showNotifs, setShowNotifs] = useState(null);
   const [showLanguages, setShowLanguages] = useState(null);
+  const { toggleColorMode, mode } = useColorMode();
+
 
   const languageClickHandler = (event) => {
     setShowLanguages(event.currentTarget);
@@ -44,12 +48,15 @@ export default function Topbar() {
       <div className="topbarWrapper">
         <div className="topLeft">
           <Link className="link" to="/">
-          <span className="logo"> Ali Joshany ❤</span>
+            <span className="logo"> Ali Joshany ❤</span>
           </Link>
         </div>
 
         <div className="topRight">
           <div className="topbarIconContainer" aria-describedby={NotifId} onClick={notifClickHandler}>
+            <button className="topbarColorMode" onClick={toggleColorMode} color="inherit">
+              {mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+            </button>
             <NotificationsIcon />
             <span className="topIconBadge">2</span>
           </div>
@@ -83,7 +90,7 @@ export default function Topbar() {
           >
             <FormControl className="languagePropover">
               <FormLabel id="demo-radio-buttons-group-label" className="languagePropoverTitle">Language</FormLabel>
-              <RadioGroup 
+              <RadioGroup
                 className="languagePropoverRadio"
                 aria-labelledby="demo-radio-buttons-group-label"
                 defaultValue="female"
