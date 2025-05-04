@@ -11,28 +11,31 @@ export default function WidgetLg() {
     <div className="WidgetLg">
       <h3 className="WidgetLgTitle">Latest TransActions</h3>
       <table className="WidgetLgTable">
-        <tr className="WidgetLgTr">
-          <th className="WidgetLgTh">Customer</th>
-          <th className="WidgetLgTh">Date</th>
-          <th className="WidgetLgTh">Amout</th>
-          <th className="WidgetLgTh">Status</th>
-        </tr>
-
-        {transactions.map((transaction) => (
-          <tr key={transaction.id} className="WidgetLgTr">
-            <td className="WidgetLgUser">
-              <img src={transaction.img} className="WidgetLgImg" />
-              <span className="WidgetLgName">{transaction.customer}</span>
-            </td>
-            <td className="WidgetLgDate">{transaction.date}</td>
-
-            <td className="WidgetLgAmount">${transaction.amount}</td>
-
-            <td className="WidgetLgStatus">
-              <Button type={transaction.status} />
-            </td>
+        <thead>
+          <tr className="WidgetLgTr">
+            <th className="WidgetLgTh">Customer</th>
+            <th className="WidgetLgTh">Date</th>
+            <th className="WidgetLgTh">Amout</th>
+            <th className="WidgetLgTh">Status</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {transactions.map((transaction) => (
+            <tr key={transaction.id} className="WidgetLgTr">
+              <td className="WidgetLgUser">
+                <img src={transaction.img} className="WidgetLgImg" />
+                <span className="WidgetLgName">{transaction.customer}</span>
+              </td>
+              <td className="WidgetLgDate">{transaction.date}</td>
+
+              <td className="WidgetLgAmount">${transaction.amount}</td>
+
+              <td className="WidgetLgStatus">
+                <Button type={transaction.status} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );

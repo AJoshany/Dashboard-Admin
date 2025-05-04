@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 import { useColorMode } from './../../ThemeContext';
 import SideDrawer from "../Drawer/ProfileDrawer";
+import SettingsDrawer from "../Drawer/SettingsDrawer";
 
 
 export default function Topbar() {
@@ -22,9 +23,14 @@ export default function Topbar() {
   const [showLanguages, setShowLanguages] = useState(null);
   // const { toggleColorMode, mode } = useColorMode();
 
-  const [openDrawer, setOpenDrawer] = useState(false);
-  const toggleDrawer = (newOpen) => () => {
-    setOpenDrawer(newOpen);
+  const [openProfileDrawer, setOpenProfileDrawer] = useState(false);
+  const toggleProfileDrawer = (newOpen) => () => {
+    setOpenProfileDrawer(newOpen);
+  }
+
+  const [openSettingsDrawer, setOpenSettingsDrawer] = useState(false);
+  const toggleSettingsDrawer = (newOpen) => () => {
+    setOpenSettingsDrawer(newOpen);
   }
 
 
@@ -112,15 +118,16 @@ export default function Topbar() {
               </FormControl>
             </Popover>
             <div className="topbarIconContainer">
-              <SettingsIcon />
+              <SettingsIcon onClick={toggleSettingsDrawer(true)}/>
             </div>
             <img src="images/1.jpg" className="topAvatar"
-              onClick={toggleDrawer(true)}
+              onClick={toggleProfileDrawer(true)}
             />
           </div>
         </div>
       </div>
-      <SideDrawer open={openDrawer} toggleDrawer={toggleDrawer}/>
+      <SideDrawer open={openProfileDrawer} toggleDrawer={toggleProfileDrawer}/>
+      <SettingsDrawer open={openSettingsDrawer} toggleDrawer={toggleSettingsDrawer} />
     </>
   );
 }

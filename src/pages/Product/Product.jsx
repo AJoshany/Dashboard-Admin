@@ -23,7 +23,7 @@ export default function Product() {
         <div className="productTopRight">
           <div className="productInfoTop">
             <img
-              src="/images/1.jpg"
+              src="/images/Products/dell.webp"
               alt="Dell Laptop"
               className="productInfoImg"
             />
@@ -74,7 +74,7 @@ export default function Product() {
             </div>
             <div className="productFormRight">
                 <div className="productUploader">
-                    <img src="/images/1.jpg" alt="Profile photo" className="productUploaderImg"/>
+                    <img src="/images/Products/dell.webp" alt="Profile photo" className="productUploaderImg"/>
                     <label>
                         <PublishIcon/>
                     </label>
