@@ -14,12 +14,18 @@ import FormLabel from '@mui/material/FormLabel';
 import { Link } from "react-router-dom";
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 import { useColorMode } from './../../ThemeContext';
+import SideDrawer from "../Drawer/ProfileDrawer";
 
 
 export default function Topbar() {
   const [showNotifs, setShowNotifs] = useState(null);
   const [showLanguages, setShowLanguages] = useState(null);
-  const { toggleColorMode, mode } = useColorMode();
+  // const { toggleColorMode, mode } = useColorMode();
+
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const toggleDrawer = (newOpen) => () => {
+    setOpenDrawer(newOpen);
+  }
 
 
   const languageClickHandler = (event) => {
@@ -44,71 +50,78 @@ export default function Topbar() {
   const languageId = openLanguage ? 'simple-popover' : undefined;
 
   return (
-    <div className="topbar">
-      <div className="topbarWrapper">
-        <div className="topLeft">
-          <Link className="link" to="/">
-            <span className="logo"> Ali Joshany ❤</span>
-          </Link>
-        </div>
+    <>
+      <div className="topbar">
+        <div className="topbarWrapper">
+          <div className="topLeft">
+            <Link className="link" to="/">
+              <span className="logo"> Ali Joshany ❤</span>
+            </Link>
+          </div>
 
-        <div className="topRight">
-          <div className="topbarIconContainer">
+          <div className="topRight">
+            {/* Dark Mode Button */}
+            {/* <div className="topbarIconContainer">
           <button className="topbarColorMode" onClick={toggleColorMode} color="inherit">
             {mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </button>
-          </div>
-          <div className="topbarIconContainer" aria-describedby={NotifId} onClick={notifClickHandler}>
-            <NotificationsIcon />
-            <span className="topIconBadge">2</span>
-          </div>
-          <Popover
-            id={NotifId}
-            open={openNotif}
-            anchorEl={showNotifs}
-            onClose={handleNotifClose}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
-            }}
-          >
-            <Typography sx={{ p: 2 }}>Notifications</Typography>
-          </Popover>
+          </div> */}
+            <div className="topbarIconContainer" aria-describedby={NotifId} onClick={notifClickHandler}>
+              <NotificationsIcon />
+              <span className="topIconBadge">2</span>
+            </div>
+            <Popover
+              id={NotifId}
+              open={openNotif}
+              anchorEl={showNotifs}
+              onClose={handleNotifClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+            >
+              <Typography sx={{ p: 2 }}>Notifications</Typography>
+            </Popover>
 
-          <div className="topbarIconContainer" aria-describedby={languageId} onClick={languageClickHandler}>
-            <LanguageIcon />
-            <span className="topIconBadge">2</span>
-          </div>
-          <Popover
-            id={languageId}
-            open={openLanguage}
-            anchorEl={showLanguages}
-            onClose={handleLanguageClose}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
-            }}
+            <div className="topbarIconContainer" aria-describedby={languageId} onClick={languageClickHandler}>
+              <LanguageIcon />
+              <span className="topIconBadge">2</span>
+            </div>
+            <Popover
+              id={languageId}
+              open={openLanguage}
+              anchorEl={showLanguages}
+              onClose={handleLanguageClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
 
-          >
-            <FormControl className="languagePropover">
-              <FormLabel id="demo-radio-buttons-group-label" className="languagePropoverTitle">Language</FormLabel>
-              <RadioGroup
-                className="languagePropoverRadio"
-                aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
-                name="radio-buttons-group"
-              >
-                <FormControlLabel className="languagePropoverLabel" value="female" control={<Radio />} label="Persian" />
-                <FormControlLabel className="languagePropoverLabel" value="male" control={<Radio />} label="English" />
-              </RadioGroup>
-            </FormControl>
-          </Popover>
-          <div className="topbarIconContainer">
-            <SettingsIcon />
+            >
+              <FormControl className="languagePropover">
+                <FormLabel id="demo-radio-buttons-group-label" className="languagePropoverTitle">Language</FormLabel>
+                <RadioGroup
+                  className="languagePropoverRadio"
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  defaultValue="female"
+                  name="radio-buttons-group"
+                >
+                  <FormControlLabel className="languagePropoverLabel" value="female" control={<Radio />} label="Persian" />
+                  <FormControlLabel className="languagePropoverLabel" value="male" control={<Radio />} label="English" />
+                </RadioGroup>
+              </FormControl>
+            </Popover>
+            <div className="topbarIconContainer">
+              <SettingsIcon />
+            </div>
+            <img src="images/1.jpg" className="topAvatar"
+              onClick={toggleDrawer(true)}
+            />
           </div>
-          <img src="images/1.jpg" className="topAvatar" />
         </div>
       </div>
-    </div>
+      <SideDrawer open={openDrawer} toggleDrawer={toggleDrawer}/>
+    </>
   );
 }
+
