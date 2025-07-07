@@ -1,7 +1,7 @@
 import React from "react";
 import "./Sidebar.css";
 import LineStyleIcon from "@mui/icons-material/LineStyle";
-import TimeLineIcon from "@mui/icons-material/TimeLine";
+
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
@@ -28,7 +28,7 @@ export default function Sidebar() {
               </li>
             </Link>
             <li className="sidebarListItem">
-              <TimeLineIcon className="sidebarIcon" />
+              <TrendingUpIcon className="sidebarIcon" />
               Analytics
             </li>
             <li className="sidebarListItem">
@@ -54,10 +54,10 @@ export default function Sidebar() {
               </li>
             </Link>
             <Link to="/products" className="link">
-            <li className="sidebarListItem">
-              <ShoppingBagIcon className="sidebarIcon" />
-              Products
-            </li>
+              <li className="sidebarListItem">
+                <ShoppingBagIcon className="sidebarIcon" />
+                Products
+              </li>
             </Link>
             <li className="sidebarListItem">
               <AttachMoneyIcon className="sidebarIcon" />
