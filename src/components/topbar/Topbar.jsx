@@ -3,20 +3,18 @@ import "./Topbar.css";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import LanguageIcon from "@mui/icons-material/Language";
 import SettingsIcon from "@mui/icons-material/Settings";
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 import { Link } from "react-router-dom";
-import { Brightness4, Brightness7 } from '@mui/icons-material';
-import { useColorMode } from './../../ThemeContext';
+import { Brightness4, Brightness7 } from "@mui/icons-material";
 import SideDrawer from "../Drawer/ProfileDrawer";
 import SettingsDrawer from "../Drawer/SettingsDrawer";
-
 
 export default function Topbar() {
   const [showNotifs, setShowNotifs] = useState(null);
@@ -26,13 +24,12 @@ export default function Topbar() {
   const [openProfileDrawer, setOpenProfileDrawer] = useState(false);
   const toggleProfileDrawer = (newOpen) => () => {
     setOpenProfileDrawer(newOpen);
-  }
+  };
 
   const [openSettingsDrawer, setOpenSettingsDrawer] = useState(false);
   const toggleSettingsDrawer = (newOpen) => () => {
     setOpenSettingsDrawer(newOpen);
-  }
-
+  };
 
   const languageClickHandler = (event) => {
     setShowLanguages(event.currentTarget);
@@ -50,10 +47,10 @@ export default function Topbar() {
   };
 
   const openNotif = Boolean(showNotifs);
-  const NotifId = openNotif ? 'simple-popover' : undefined;
+  const NotifId = openNotif ? "simple-popover" : undefined;
 
   const openLanguage = Boolean(showLanguages);
-  const languageId = openLanguage ? 'simple-popover' : undefined;
+  const languageId = openLanguage ? "simple-popover" : undefined;
 
   return (
     <>
@@ -72,7 +69,11 @@ export default function Topbar() {
             {mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </button>
           </div> */}
-            <div className="topbarIconContainer" aria-describedby={NotifId} onClick={notifClickHandler}>
+            <div
+              className="topbarIconContainer"
+              aria-describedby={NotifId}
+              onClick={notifClickHandler}
+            >
               <NotificationsIcon />
               <span className="topIconBadge">2</span>
             </div>
@@ -82,14 +83,18 @@ export default function Topbar() {
               anchorEl={showNotifs}
               onClose={handleNotifClose}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
             >
               <Typography sx={{ p: 2 }}>Notifications</Typography>
             </Popover>
 
-            <div className="topbarIconContainer" aria-describedby={languageId} onClick={languageClickHandler}>
+            <div
+              className="topbarIconContainer"
+              aria-describedby={languageId}
+              onClick={languageClickHandler}
+            >
               <LanguageIcon />
               <span className="topIconBadge">2</span>
             </div>
@@ -99,36 +104,54 @@ export default function Topbar() {
               anchorEl={showLanguages}
               onClose={handleLanguageClose}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
-
             >
               <FormControl className="languagePropover">
-                <FormLabel id="demo-radio-buttons-group-label" className="languagePropoverTitle">Language</FormLabel>
+                <FormLabel
+                  id="demo-radio-buttons-group-label"
+                  className="languagePropoverTitle"
+                >
+                  Language
+                </FormLabel>
                 <RadioGroup
                   className="languagePropoverRadio"
                   aria-labelledby="demo-radio-buttons-group-label"
                   defaultValue="female"
                   name="radio-buttons-group"
                 >
-                  <FormControlLabel className="languagePropoverLabel" value="female" control={<Radio />} label="Persian" />
-                  <FormControlLabel className="languagePropoverLabel" value="male" control={<Radio />} label="English" />
+                  <FormControlLabel
+                    className="languagePropoverLabel"
+                    value="female"
+                    control={<Radio />}
+                    label="Persian"
+                  />
+                  <FormControlLabel
+                    className="languagePropoverLabel"
+                    value="male"
+                    control={<Radio />}
+                    label="English"
+                  />
                 </RadioGroup>
               </FormControl>
             </Popover>
             <div className="topbarIconContainer">
-              <SettingsIcon onClick={toggleSettingsDrawer(true)}/>
+              <SettingsIcon onClick={toggleSettingsDrawer(true)} />
             </div>
-            <img src="images/1.jpg" className="topAvatar"
+            <img
+              src="images/1.jpg"
+              className="topAvatar"
               onClick={toggleProfileDrawer(true)}
             />
           </div>
         </div>
       </div>
-      <SideDrawer open={openProfileDrawer} toggleDrawer={toggleProfileDrawer}/>
-      <SettingsDrawer open={openSettingsDrawer} toggleDrawer={toggleSettingsDrawer} />
+      <SideDrawer open={openProfileDrawer} toggleDrawer={toggleProfileDrawer} />
+      <SettingsDrawer
+        open={openSettingsDrawer}
+        toggleDrawer={toggleSettingsDrawer}
+      />
     </>
   );
 }
-

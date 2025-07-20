@@ -1,85 +1,85 @@
-.topbar{
-    width: 100%;
-    height: 50px;
-    background-color: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    color: black;
+.topbar {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  color: black;
 }
 
-.topbarWrapper{
-    height: 100%;
-    padding: 0px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.topbarWrapper {
+  width: 100%;
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo{
-    font-weight: bold;
-    font-size: 30px;
-    cursor: pointer;
-    color: darkblue;
+.logo {
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+  color: darkblue;
 }
 
-.topRight{
-    display: flex;
-    align-items: center;
+.topRight {
+  display: flex;
+  align-items: center;
 }
 
-.topbarIconContainer{
-    position: relative;
-    cursor: pointer;
-    margin-right: 10px;
-    color: #555;
+.topbarIconContainer {
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+  color: #555;
 }
 
-.topIconBadge{
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: -5px;
-    right: 0;
-    background-color: red;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    border-radius: 50%;
+.topIconBadge {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: -5px;
+  right: 0;
+  background-color: red;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  border-radius: 50%;
 }
 
-.topAvatar{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    
+.topAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-.languagePropover{
-    padding-top: 10px !important;
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.languagePropover {
+  padding-top: 10px !important;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.languagePropoverTitle{
-    padding-bottom: 10px !important;
-    font-weight: 300;
-    font-size: 16px !important ;
+.languagePropoverTitle {
+  padding-bottom: 10px !important;
+  font-weight: 300;
+  font-size: 16px !important ;
 }
-.languagePropoverLabel{
-    font-size: 12px !important;
+.languagePropoverLabel {
+  font-size: 12px !important;
 }
-.topbarColorMode{
-    border: none;
-    background-color: #fff;
-    color: rgb(88, 88, 88);
-    cursor: pointer;
+.topbarColorMode {
+  border: none;
+  background-color: #fff;
+  color: rgb(88, 88, 88);
+  cursor: pointer;
 }
-.profileDrawer{
-    top: 50px;
-    height: calc(100% - 50px);
+.profileDrawer {
+  top: 50px;
+  height: calc(100% - 50px);
 }

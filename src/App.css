@@ -1,14 +1,21 @@
-*{
-    margin: 0;
+* {
+  margin: 0;
 }
 
-.container{
-    display: flex;
-    margin-top: 10px;
-
+.container {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 10px;
 }
 
-.link{
-    text-decoration: none;
-    color: inherit;
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
