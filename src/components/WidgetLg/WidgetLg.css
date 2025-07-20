@@ -1,63 +1,69 @@
-.WidgetLg{
-    flex: 2;
-    padding: 20px;
-    box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75);
+.WidgetLg {
+  flex: 2;
+  padding: 20px;
+  box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75);
 }
 
-.WidgetLgTitle{
-    font-size: 22px;
-    font-weight: 600;
+.WidgetLgTitle {
+  font-size: 22px;
+  font-weight: 600;
 }
 
-.WidgetLgTable{
-    width: 100%;
-    border-spacing: 20px;
+.WidgetLgTable {
+  width: 100%;
+  border-spacing: 20px;
 }
 
-.WidgetLgTh{
-    font-weight: bold;
-    text-align: left;
+.WidgetLgTh {
+  font-weight: bold;
+  text-align: left;
 }
 
-.WidgetLgUser{
-    display: flex;
-    align-items: center;
-
+.WidgetLgUser {
+  display: flex;
+  align-items: center;
 }
 
-.WidgetLgImg{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 10px;
+.WidgetLgImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px;
 }
 
-.WidgetLgName{
-    font-weight: 400;
+.WidgetLgName {
+  font-weight: 400;
 }
 
-.WidgetLgDate , .WidgetLgAmount{
-    font-weight: 300;
+.WidgetLgDate,
+.WidgetLgAmount {
+  font-weight: 300;
 }
 
-.WidgetLgButton{
-    padding: 5px 7px;
-    border: none;
-    border-radius: 10px ;
+.WidgetLgButton {
+  padding: 5px 7px;
+  border: none;
+  border-radius: 10px;
 }
 
-.WidgetLgButton.Approved{
-    color: #3bb077;
-    background-color: #e5faf2;
+.WidgetLgButton.Approved {
+  color: #3bb077;
+  background-color: #e5faf2;
 }
 
-.WidgetLgButton.Declined{
-    color: #d95087;
-    background-color: #fff0f1;
+.WidgetLgButton.Declined {
+  color: #d95087;
+  background-color: #fff0f1;
 }
 
-.WidgetLgButton.Pending{
-    color: #2a7ade;
-    background-color: #edf1fe;
+.WidgetLgButton.Pending {
+  color: #2a7ade;
+  background-color: #edf1fe;
+}
+
+@media screen and (max-width: 1024px) {
+  .WidgetLgTable {
+    border-spacing: 0;
+  }
 }
