@@ -10,5 +10,6 @@
 @media screen and (max-width: 1024px) {
   .homeWidgets {
     flex-direction: column;
+    margin-top: 3rem;
   }
 }
