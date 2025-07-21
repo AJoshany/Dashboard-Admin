@@ -16,7 +16,7 @@ export default function Chart({ title, data, dataKey, grid }) {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 1024) {
-        setAspect(4);
+        setAspect(2);
       } else {
         setAspect(6);
       }
