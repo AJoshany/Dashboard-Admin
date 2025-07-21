@@ -66,4 +66,10 @@
   .WidgetLgTable {
     border-spacing: 0;
   }
+  .WidgetLg {
+    font-size: 0.8rem;
+  }
+  .WidgetLgTitle {
+    margin-bottom: 1.5rem;
+  }
 }
