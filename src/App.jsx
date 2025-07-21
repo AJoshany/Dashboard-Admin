@@ -5,15 +5,21 @@ import Topbar from "./components/topbar/Topbar.jsx";
 import Sidebar from "./components/sidebar/Sidebar.jsx";
 import { CssBaseline, Box } from "@mui/material";
 import { ThemeContextProvider } from "./ThemeContext";
+import { useState } from "react";
 function App() {
   let router = useRoutes(routes);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const handleTopbarMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+  };
 
   return (
     <>
       <CssBaseline />
-      <Topbar />
+      <Topbar showMenu={handleTopbarMenu} />
       <div className="container">
-        <Sidebar />
+        <Sidebar showMenu={showMobileMenu} />
         {router}
       </div>
     </>

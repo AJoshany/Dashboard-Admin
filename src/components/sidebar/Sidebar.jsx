@@ -14,9 +14,9 @@ import StackedLineChartIcon from "@mui/icons-material/StackedLineChart";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { Link } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({ showMenu }) {
   return (
-    <div className="sidebar ">
+    <div className={`sidebar ${showMenu ? "showMobileMenu" : ""}`}>
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>

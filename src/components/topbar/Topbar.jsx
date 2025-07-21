@@ -15,8 +15,9 @@ import { Link } from "react-router-dom";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 import SideDrawer from "../Drawer/ProfileDrawer";
 import SettingsDrawer from "../Drawer/SettingsDrawer";
+import MenuIcon from "@mui/icons-material/Menu";
 
-export default function Topbar() {
+export default function Topbar({ showMenu }) {
   const [showNotifs, setShowNotifs] = useState(null);
   const [showLanguages, setShowLanguages] = useState(null);
   // const { toggleColorMode, mode } = useColorMode();
@@ -59,6 +60,9 @@ export default function Topbar() {
           <div className="topLeft">
             <Link className="link" to="/">
               <span className="logo"> Ali Joshany ❤</span>
+              <span className="mobilemenu" onClick={showMenu}>
+                <MenuIcon />
+              </span>
             </Link>
           </div>
 

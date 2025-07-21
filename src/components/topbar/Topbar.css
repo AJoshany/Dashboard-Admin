@@ -83,3 +83,15 @@
   top: 50px;
   height: calc(100% - 50px);
 }
+
+.mobilemenu {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  .logo {
+    display: none;
+  }
+  .mobilemenu {
+    display: inline-block;
+  }
+}
